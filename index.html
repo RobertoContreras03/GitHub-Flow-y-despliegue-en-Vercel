@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorer App - Prototipo Figma</title>
+    <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col font-sans">
+    <header class="w-full bg-brand-blue px-6 md:px-12 py-4 flex flex-col md:flex-row justify-between items-center gap-4 shadow-sm sticky top-0 z-50">
+        <div class="text-black font-bold text-lg md:text-xl tracking-wide">
+            Explora tu mundo
+        </div>
+        <nav class="w-full md:w-auto">
+            <ul class="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-black font-semibold text-sm">
+                <li><a href="#paises-destacados" class="hover:text-white active:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-custom transition-colors">Home</a></li>
+                <li><a href="#busqueda-filtros" class="hover:text-white active:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-custom transition-colors">Regiones</a></li>
+                <li><a href="#localizacion-geografica" class="hover:text-white active:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-custom transition-colors">Referencias</a></li>
+                <li><a href="#" class="hover:text-white active:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-custom transition-colors">Tema</a></li>
+                <li><a href="#" class="hover:text-white active:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-custom transition-colors">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="app" class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+        <section class="flex flex-col items-center text-center space-y-3">
+            <h1 class="text-xl sm:text-2xl font-bold text-gray-900">
+                Conoce sobre todos los paises del mundo
+            </h1>
+            <p class="text-xs sm:text-sm text-gray-600 font-medium">
+                Buscar por pais, capital, región, etc
+            </p>
+            <div class="w-full max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
+                <div class="relative w-full sm:w-2/3">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+                    </div>
+                    <input type="text" placeholder="Escriba el nombre del pais , region , etc....." class="w-full pl-10 pr-4 py-2.5 bg-white border border-brand-red rounded-md text-xs sm:text-sm text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red transition-all"
+                    />
+                </div>
+                <div class="w-full sm:w-1/3">
+                    <input type="text" placeholder="Escriba el nombre del pais , region , etc....." class="w-full px-4 py-2.5 bg-white border border-brand-red rounded-md text-xs sm:text-sm text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red transition-all"
+                    />
+                </div>
+            </div>
+        </section>
+        <section id="paises-destacados" class="space-y-6 pt-4 border-t border-gray-300">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 text-center sm:text-left">
+                Paises Destacados
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center">
+                <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-full h-44 mb-4 flex items-center justify-center overflow-hidden bg-gray-50 border border-gray-200">
+                            <img src="https://flagcdn.com/w320/sv.png" alt="Bandera El Salvador" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="text-center space-y-1.5">
+                            <h3 class="text-xl font-bold text-card-text">El Salvador</h3>
+                            <p class="text-sm font-medium text-card-border">San Salvador</p>
+                            <p class="text-sm font-semibold text-card-border pt-2">6 400 000</p>
+                            <p class="text-sm font-semibold text-card-border">21 041 km²</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <a href="#localizacion-geografica" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 text-black font-bold text-sm px-6 py-2 rounded-custom transition-all text-center">
+              Ver más
+            </a>
+                    </div>
+                </article>
+                <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-full h-44 mb-4 flex items-center justify-center overflow-hidden bg-gray-50 border border-gray-200">
+                            <img src="https://flagcdn.com/w320/us.png" alt="Bandera Estados Unidos" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="text-center space-y-1.5">
+                            <h3 class="text-xl font-bold text-card-text">Estados Unidos</h3>
+                            <p class="text-sm font-medium text-card-border">Washington</p>
+                            <p class="text-sm font-semibold text-card-border pt-2">341,000,000</p>
+                            <p class="text-sm font-semibold text-card-border">9 833 517 km²</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <a href="#localizacion-geografica" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 text-black font-bold text-sm px-6 py-2 rounded-custom transition-all text-center">
+              Ver más
+            </a>
+                    </div>
+                </article>
+                <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="w-full h-44 mb-4 flex items-center justify-center overflow-hidden bg-gray-50 border border-gray-200">
+                            <img src="https://flagcdn.com/w320/de.png" alt="Bandera Alemania" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="text-center space-y-1.5">
+                            <h3 class="text-xl font-bold text-card-text">Alemania</h3>
+                            <p class="text-sm font-medium text-card-border">Berlin</p>
+                            <p class="text-sm font-semibold text-card-border pt-2">84,000,000</p>
+                            <p class="text-sm font-semibold text-card-border">357,376 km²</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <a href="#localizacion-geografica" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 text-black font-bold text-sm px-6 py-2 rounded-custom transition-all text-center">
+              Ver más
+            </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="busqueda-filtros" class="space-y-6 pt-10 border-t border-gray-300">
+            <div>
+                <a href="#paises-destacados" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 text-black font-bold text-base px-8 py-2.5 rounded-custom shadow-sm transition-all text-center">
+          Volver
+        </a>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <aside class="w-full lg:w-72 bg-brand-gray rounded-custom p-6 shadow-sm flex-shrink-0">
+                    <h2 class="text-lg font-bold text-gray-900 mb-6">Filtros Avanzados</h2>
+                    <ul class="space-y-5 text-gray-900 font-bold text-base">
+                        <li class="flex items-center gap-6"><span class="text-xl">X</span><span>Subregión</span></li>
+                        <li class="flex items-center gap-6"><span class="text-xl">X</span><span>Población</span></li>
+                        <li class="flex items-center gap-6"><span class="text-xl">X</span><span>Idioma</span></li>
+                        <li class="flex items-center gap-6"><span class="text-xl">X</span><span>Moneda</span></li>
+                    </ul>
+                </aside>
+
+                <div class="flex-1 w-full space-y-6">
+                    <h2 class="text-lg sm:text-xl font-bold text-gray-800 text-center">
+                        2 países encontrados para "Alemania"
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+                        <article class="w-full max-w-xs bg-white border border-card-border rounded-custom p-5 shadow-sm">
+                            <div class="w-full h-36 mb-4 overflow-hidden border border-gray-200">
+                                <img src="https://flagcdn.com/w320/de.png" alt="Bandera Alemania" class="h-full w-full object-cover" />
+                            </div>
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl font-bold text-card-text">Alemania</h3>
+                                <p class="text-sm font-medium text-card-border">Berlin</p>
+                                <p class="text-sm font-semibold text-card-border pt-1">84,000,000</p>
+                                <p class="text-sm font-semibold text-card-border">357,376 km²</p>
+                            </div>
+                        </article>
+
+                        <article class="w-full max-w-xs bg-white border border-card-border rounded-custom p-5 shadow-sm">
+                            <div class="w-full h-36 mb-4 overflow-hidden border border-gray-200">
+                                <img src="https://flagcdn.com/w320/de.png" alt="Bandera Alemania" class="h-full w-full object-cover" />
+                            </div>
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl font-bold text-card-text">Alemania</h3>
+                                <p class="text-sm font-medium text-card-border">Berlin</p>
+                                <p class="text-sm font-semibold text-card-border pt-1">84,000,000</p>
+                                <p class="text-sm font-semibold text-card-border">357,376 km²</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="localizacion-geografica" class="space-y-6 pt-10 border-t border-gray-300">
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+
+                <aside class="w-full lg:w-72 flex flex-col gap-6 flex-shrink-0">
+                    <a href="#paises-destacados" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 text-black font-bold text-base px-8 py-2.5 rounded-custom shadow-sm transition-all text-center">
+            Volver
+          </a>
+
+                    <div class="bg-brand-gray p-4 rounded-custom shadow-sm space-y-4">
+                        <h2 class="text-lg font-bold text-gray-900 text-center sm:text-left">
+                            Localización geográfica
+                        </h2>
+                        <div class="space-y-3">
+                            <div class="w-full h-32 bg-gray-200 overflow-hidden rounded-custom border border-gray-400">
+                                <img src="https://tile.openstreetmap.org/static/6/33/21.png" alt="Mapa Alemania" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="w-full h-32 bg-gray-200 overflow-hidden rounded-custom border border-gray-400">
+                                <img src="https://tile.openstreetmap.org/static/4/4/6.png" alt="Mapa EE.UU." class="w-full h-full object-cover" />
+                            </div>
+                            <div class="w-full h-32 bg-gray-200 overflow-hidden rounded-custom border border-gray-400">
+                                <img src="https://tile.openstreetmap.org/static/7/31/57.png" alt="Mapa El Salvador" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div class="flex-1 w-full space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+                        <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 shadow-sm">
+                            <div class="w-full h-36 mb-4 overflow-hidden border border-gray-200">
+                                <img src="https://flagcdn.com/w320/sv.png" alt="Bandera El Salvador" class="h-full w-full object-cover" />
+                            </div>
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl font-bold text-card-text">América Central</h3>
+                                <p class="text-sm font-medium text-card-border">Español</p>
+                                <p class="text-sm font-semibold text-card-border pt-1">Dólar estadounidense ($)</p>
+                                <p class="text-sm font-semibold text-card-border">República presidencialista</p>
+                            </div>
+                        </article>
+                        <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 shadow-sm">
+                            <div class="w-full h-36 mb-4 overflow-hidden border border-gray-200">
+                                <img src="https://flagcdn.com/w320/us.png" alt="Bandera EE.UU." class="h-full w-full object-cover" />
+                            </div>
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl font-bold text-card-text">América del Norte</h3>
+                                <p class="text-sm font-medium text-card-border">Inglés</p>
+                                <p class="text-sm font-semibold text-card-border pt-1">Dólar estadounidense</p>
+                                <p class="text-sm font-semibold text-card-border">República federal presidencialista</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="flex justify-center">
+                        <article class="w-full max-w-sm bg-white border border-card-border rounded-custom p-5 shadow-sm">
+                            <div class="w-full h-36 mb-4 overflow-hidden border border-gray-200">
+                                <img src="https://flagcdn.com/w320/de.png" alt="Bandera Alemania" class="h-full w-full object-cover" />
+                            </div>
+                            <div class="text-center space-y-1.5">
+                                <h3 class="text-xl font-bold text-card-text">Alemania</h3>
+                                <p class="text-sm font-medium text-card-border">Berlin</p>
+                                <p class="text-sm font-semibold text-card-border pt-1">84,000,000</p>
+                                <p class="text-sm font-semibold text-card-border">357,376 km²</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <footer class="w-full bg-brand-blue py-4 px-6 text-center text-xs sm:text-sm font-semibold text-black mt-12 space-y-1">
+        <p class="font-bold">Explorer App</p>
+        <p>© 2026 - Desarrollado por Roberto Contreras</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
