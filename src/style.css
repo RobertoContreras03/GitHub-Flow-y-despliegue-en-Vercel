@@ -1,10 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
 @theme {
-    --color-brand-blue: #198ee6;
-    --color-brand-red: #ff6b6b;
-    --color-brand-red-hover: #ff5252;
-    --color-brand-gray: #a3a3a3;
-    --color-card-border: #fb923c;
-    --color-card-text: #f97316;
-    --radius-custom: 2px;
+    --color-brand-blue: #38bdf8;
+    --color-brand-red: #FF5A5F;
+    --color-brand-red-hover: #e0484d;
+    --color-brand-gray: #f4f4f4;
+    --color-card-border: #FF5733;
+    --color-card-text: #FF5733;
+    --radius-custom: 1rem;
 }
