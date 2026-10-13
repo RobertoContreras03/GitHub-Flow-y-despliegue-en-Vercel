@@ -37,7 +37,7 @@ export function renderCountryCard(country: Country): string {
             <p class="text-sm font-semibold text-card-border">Área: ${areaStr}</p>
           </div>
           <div class="mt-4 flex justify-end">
-            <a href="#/country/${code}" onclick="event.stopPropagation();" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 text-white font-bold text-xs sm:text-sm px-5 py-2 rounded-custom transition-all text-center">
+            <a href="#/country/${code}" onclick="event.stopPropagation();" class="inline-block bg-brand-red hover:bg-brand-red-hover active:scale-95 text-white font-bold text-xs sm:text-sm px-5 py-2 rounded-custom transition-all text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
               Ver más
             </a>
           </div>
