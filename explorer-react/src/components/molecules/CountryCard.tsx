@@ -30,7 +30,7 @@ export function CountryCard({ country, onSelect }: CountryCardProps): JSX.Elemen
 
         <button
           type="button"
-          onClick={() => onSelect(country.cca3 ?? country.names.common)}
+          onClick={() => onSelect(country.code?.alpha_2 ?? country.cca3 ?? country.names.common)}
           className="mt-4 w-full cursor-pointer rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700"
         >
           Seleccionar país
