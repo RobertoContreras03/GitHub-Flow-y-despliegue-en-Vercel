@@ -20,3 +20,4 @@ export const paisTres: Country = {
   population: 48335116,
   region: 'Europe',
 };
+export const countriesDemo: Country[] = [paisUno, paisDos, paisTres];
