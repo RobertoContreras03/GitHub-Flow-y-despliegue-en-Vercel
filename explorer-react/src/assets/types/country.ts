@@ -12,6 +12,9 @@ export interface Country {
 
   capital?: string[];
   cca3?: string;
+  code?: {
+    alpha_2: string;
+  };
 }
 export interface CountriesResponse {
   data?: {

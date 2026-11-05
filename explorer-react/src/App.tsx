@@ -1,20 +1,79 @@
+import { useState } from 'react';
 import type { JSX } from 'react';
-import { CountryCard } from './components/CountryCard';
-import { paisUno, paisDos, paisTres } from './data/countries-demo';
+import { SiteHeader } from './components/organisms/SiteHeader';
+import { Header } from './components/organisms/Header';
+import { CountryGrid } from './components/organisms/CountryGrid';
+import { countriesDemo } from './data/countries-demo';
+import { filterCountries } from './data/utils/filter';
 
 export default function App(): JSX.Element {
+ 
+  const [query, setQuery] = useState<string>('');
+  const [region, setRegion] = useState<string>('');
+
+ 
+  const regions: string[] = Array.from(
+    new Set(countriesDemo.map((country) => country.region))
+  )
+    .filter((item) => item.trim().length > 0)
+    .sort();
+
+  const filteredCountries = filterCountries(countriesDemo, query, region);
+
+  const handleSelect = (code: string): void => {
+    console.log("Código de país seleccionado:", code);
+  };
+
+  const handleClearFilters = (): void => {
+    setQuery('');
+    setRegion('');
+  };
+
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-10 dark:bg-slate-950">
-      <div className="mx-auto max-w-6xl">
-        <h1 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white">
-          Explorer App (React)
-        </h1>
-        <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CountryCard country={paisUno} />
-          <CountryCard country={paisDos} />
-          <CountryCard country={paisTres} />
-        </section>
-      </div>
-    </main>
+    <>
+      <SiteHeader />
+
+      <main className="min-h-screen bg-slate-100 px-4 py-10 dark:bg-slate-950">
+        <div className="mx-auto max-w-6xl">
+          
+          <Header
+            query={query}
+            region={region}
+            regions={regions}
+            onQueryChange={setQuery}
+            onRegionChange={setRegion}
+          >
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+              Explorer App
+            </h1>
+          </Header>
+
+          <div className="mb-6 flex items-center justify-between">
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
+              Mostrando {filteredCountries.length} {filteredCountries.length === 1 ? 'país' : 'países'}
+            </p>
+            
+            {(query !== '' || region !== '') && (
+              <button
+                onClick={handleClearFilters}
+                className="text-sm font-semibold text-blue-600 hover:underline dark:text-blue-400"
+              >
+                Limpiar filtros
+              </button>
+            )}
+          </div>
+
+          {filteredCountries.length > 0 ? (
+            <CountryGrid countries={filteredCountries} onSelect={handleSelect} />
+          ) : (
+            <div className="rounded-xl border-2 border-dashed border-slate-300 py-16 text-center dark:border-slate-700">
+              <p className="text-lg font-medium text-slate-600 dark:text-slate-400">
+                No se encontraron países que coincidan con los filtros.
+              </p>
+            </div>
+          )}
+        </div>
+      </main>
+    </>
   );
 }
