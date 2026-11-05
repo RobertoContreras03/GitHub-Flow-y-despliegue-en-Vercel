@@ -27,7 +27,10 @@ export function CountryCard({ country, onSelect }: CountryCardProps): JSX.Elemen
         <div className="mt-2">
           Región: <Badge region={country.region} />
         </div>
-
+        <div className="mt-2 text-slate-700 dark:text-slate-200">
+            Capital: {country.capital ? country.capital[0] : 'N/A'}
+              </div>
+              
         <button
           type="button"
           onClick={() => onSelect(country.code?.alpha_2 ?? country.cca3 ?? country.names.common)}

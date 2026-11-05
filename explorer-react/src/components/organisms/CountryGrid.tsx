@@ -9,7 +9,7 @@ interface CountryGridProps {
 
 export function CountryGrid({ countries, onSelect }: CountryGridProps): JSX.Element {
   return (
-    <section aria-label="Países de ejemplo" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+   <section aria-label="Países de ejemplo" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {countries.map((country) => (
         <CountryCard
           key={country.code?.alpha_2 ?? country.cca3 ?? country.names.common}
