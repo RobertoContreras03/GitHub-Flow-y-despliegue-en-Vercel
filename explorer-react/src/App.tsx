@@ -1,78 +1,25 @@
-import { useState, useEffect } from 'react';
 import type { JSX } from 'react';
 import { SiteHeader } from './components/organisms/SiteHeader';
 import { Header } from './components/organisms/Header';
 import { CountryGrid } from './components/organisms/CountryGrid';
-import type { Country } from './assets/types/country';
-import { filterCountries } from './data/utils/filter';
-import { countriesDemo } from './data/countries-demo'; // Importamos tus datos locales
+import { useCountries } from './hooks/useCountries';
+import { useSearch } from './hooks/useSearch';
 
 export default function App(): JSX.Element {
-  // 1. Estados de Interfaz (Filtros)
-  const [query, setQuery] = useState<string>('');
-  const [region, setRegion] = useState<string>('');
-
-  
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-   
-    const controller = new AbortController();
-    const { signal } = controller;
-
-    const fetchCountries = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        
-        if (signal.aborted) {
-          throw new DOMException('Aborted', 'AbortError');
-        }
-
-       
-        setCountries(countriesDemo);
-      } catch (err: any) {
-       
-        if (err.name === 'AbortError') {
-          console.log('Petición cancelada por limpieza (cleanup)');
-        } else {
-          setError('Ocurrió un error al cargar los datos');
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchCountries();
-
-    
-    return () => {
-      controller.abort();
-    };
-  }, []); 
-
  
-  const regions: string[] = Array.from(
-    new Set(countries.map((country) => country.region))
-  )
-    .filter((item) => item?.trim().length > 0)
-    .sort();
-
-  const filteredCountries = filterCountries(countries, query, region);
+  const { countries, isLoading, error } = useCountries();
+  const { 
+    query, 
+    region, 
+    regions, 
+    filteredCountries, 
+    setQuery, 
+    setRegion, 
+    handleClearFilters 
+  } = useSearch(countries);
 
   const handleSelect = (code: string): void => {
     console.log("Código de país seleccionado:", code);
-  };
-
-  const handleClearFilters = (): void => {
-    setQuery('');
-    setRegion('');
   };
 
   return (
@@ -109,6 +56,7 @@ export default function App(): JSX.Element {
               <p className="text-lg font-medium">⚠️ Ocurrió un problema: {error}</p>
             </div>
           )}
+
           {}
           {!isLoading && !error && (
             <>
@@ -125,6 +73,7 @@ export default function App(): JSX.Element {
                   </button>
                 )}
               </div>
+
               {filteredCountries.length > 0 ? (
                 <CountryGrid countries={filteredCountries} onSelect={handleSelect} />
               ) : (
