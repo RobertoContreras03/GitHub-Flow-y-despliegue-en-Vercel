@@ -1,32 +1,17 @@
-# React + TypeScript + Vite
+# Explorer App — Versión React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web adaptable para explorar información geográfica y demográfica de países, con búsqueda en tiempo real, filtrado combinado por región, vistas dinámicas de detalle y navegación entre países fronterizos sin recarga de página.
+---
 
-Currently, two official plugins are available:
+## Tecnologías aplicadas en la explorer App
+- **React** (Componentes funcionales, como `useState`, `useEffect` y custom Hooks)
+- **TypeScript** (Tipado estricto de props, contratos de hooks y modelos de datos)
+- **React Router v6** (`BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, `useNavigate`)
+- **Tailwind CSS v4** (Diseño adaptable *mobile-first* y soporte de modo oscuro)
+- **Vite** (Entorno de desarrollo y empaquetado)
+- **pnpm** (Gestor de paquetes)
+---
+## Requisitos e instalación local
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Requisitos previos:** Node.js y `pnpm` instalado.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
